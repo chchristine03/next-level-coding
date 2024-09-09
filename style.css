@@ -87,8 +87,9 @@ body{
   font-style: normal;
   font-size: 80px;
   text-align:center;
-  position:relative;
-  margin-top:100px;
+  position:absolute;
+  top:50px; right:38vw;
+
   
 }
 
@@ -102,8 +103,8 @@ body{
   text-align:center;
   border: 1px solid rgba(255, 0, 0, 0);
   position:relative;
-  margin-top:50px;
 }
+
 img {
   position: relative;
   margin-top:10px;
