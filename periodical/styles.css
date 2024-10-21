@@ -1,0 +1,79 @@
+body{
+    background-color: rgb(96, 40, 61);
+}
+.circle {
+    position:absolute;
+    border-radius: 50%; /* Makes the div a circle */
+    width: 60px; /* Width of all circles */
+    height: 60px; /* Height of all circles */
+    text-align:center;
+    align-content: center;
+    font-family: "pf-marlet-display", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size:  20px;
+    color: rgb(0, 0, 0);
+}
+
+.column1 {
+    margin-left: 150px; 
+    background-color: #60ac72; 
+
+}
+.column2 {
+    margin-left: 250px; 
+    background-color: #34dbd3; 
+}
+
+.column3 {
+    margin-left: 350px; 
+    background-color: #3458db; 
+}
+
+.column4 {
+    margin-left: 450px; 
+    background-color: #422590; 
+}
+
+.row1{
+    top: 50px;
+}
+.row2{
+    top: 150px;
+}
+.row3{
+    top: 250px;
+}
+.row4{
+    top: 350px;
+}
+.row5{
+    top: 450px;
+}
+.row6{
+    top: 550px;
+}
+.row7{
+    top: 650px;
+}
+.content{
+    margin-left:400px;
+}
+.outline {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: relative;
+  }
+.title{
+    font-family: "pf-marlet-display", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size:  20px;
+    color: rgb(120, 210, 255);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: 0 100%; /* Adjust to control text alignment */
+    transform: translate(-50%, -100%); 
+}
