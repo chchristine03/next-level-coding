@@ -35,7 +35,6 @@ function map(value, low1, high1, low2, high2) {
     return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
 }
 
-// Ensure getMonthlyRandomId is defined before calling it
 function getMonthlyRandomId(min, max) {
     const now = new Date();
     const monthSeed = now.getFullYear() * 100 + now.getMonth() + 1;
@@ -58,17 +57,25 @@ async function getMonthlyRecipeCalories() {
         const result = await response.json();
         
         // Get calories
-        const calories = result.nutrition?.calories || 0;
+        const calories = result.nutrition?.calories;
+        const dishName = result.name;
+
+        console.log("Dish Name:", dishName);
         console.log("Monthly Recipe Calories:", calories);
         
+        
         // Invert the mapping: Assuming calories 0-1000 maps to brightness from 2 (bright) to 0.5 (dark)
-        let brightness = map(calories, 0, 1000, 1, 0.2);
+        let brightness = map(calories, 0, 1000, 1,0.1);
         console.log("Brightness:", brightness);
+        console.log()
 
         // Apply brightness filter to the plate image
         const plateImage = document.querySelector('.plate');
         plateImage.style.filter = `brightness(${brightness})`;
         console.log("Plate image filter:", plateImage.style.filter);
+        
+        const dishTextElement = document.querySelector('.dish-name');
+        dishTextElement.innerText = dishName;
 
     } catch (error) {
         console.error(error);
