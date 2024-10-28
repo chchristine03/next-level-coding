@@ -1,116 +1,78 @@
-
-
-/*const url = 'https://brand-logo-api.p.rapidapi.com/brand/retrieve';
-const options = {
-	method: 'GET',
-	headers: {
-		'x-rapidapi-key': 'd8b5bbd9fcmshf749d0da053113dp1c5ed4jsn527843f5c58f',
-		'x-rapidapi-host': 'brand-logo-api.p.rapidapi.com'
-	}
-};
-
+/*
 async function getData() {
 
     const url = 'https://brand-logo-api.p.rapidapi.com/brand/retrieve';
+    const options = {
+        method: 'GET',
+        headers: {
+            'x-rapidapi-key': 'd8b5bbd9fcmshf749d0da053113dp1c5ed4jsn527843f5c58f',
+            'x-rapidapi-host': 'brand-logo-api.p.rapidapi.com'
+        }
+    };
 
+
+    
     try {
         const response = await fetch(url, options);
         const result = await response.text();
         console.log(result);
+
+
+        
     } catch (error) {
         console.error(error);
     }
     
-    
   }
 
 
+
   getData();
+*/
 
-  */
 
+function map(value, low1, high1, low2, high2) {
+    return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
+}
 
- /*
-  const url = 'https://brand-logo-api.p.rapidapi.com/brand/retrieve';
-  const API_KEY = 'brand__3ZWNr9UNGmmy3MGDgK4TSZ6Y';
+// Ensure getMonthlyRandomId is defined before calling it
+function getMonthlyRandomId(min, max) {
+    const now = new Date();
+    const monthSeed = now.getFullYear() * 100 + now.getMonth() + 1;
+    return min + (monthSeed % (max - min + 1));
+}
 
-  const options = {
-      method: 'GET',
-      headers: {
-          'x-rapidapi-key': 'd8b5bbd9fcmshf749d0da053113dp1c5ed4jsn527843f5c58f',
-          'x-rapidapi-host': 'brand-logo-api.p.rapidapi.com'
-      }
-  };
-  
-  async function getData() {
-      try {
-          const response = await fetch(url, options);
-  
-          // Convert the response to JSON
-          const result = await response.json();
-  
-          // Check if brand.colors exists and is an array
-          if (result.brand && Array.isArray(result.brand.colors)) {
-              // Extract all hex values from the colors array
-              const hexColors = result.brand.colors.map(color => color.hex);
-              console.log('Hex Colors:', hexColors);
-          } else {
-              console.log('No colors data found.');
-          }
-      } catch (error) {
-          console.error('Error fetching brand data:', error);
-      }
-  }
-  
-  getData();
+async function getMonthlyRecipeCalories() {
+    const randomId = getMonthlyRandomId(8000, 9000); // Adjust ID range based on Tasty's available range
+    const url = `https://tasty.p.rapidapi.com/recipes/get-more-info?id=${randomId}`;
+    const options = {
+        method: 'GET',
+        headers: {
+            'x-rapidapi-key': 'd8b5bbd9fcmshf749d0da053113dp1c5ed4jsn527843f5c58f',
+            'x-rapidapi-host': 'tasty.p.rapidapi.com'
+        }
+    };
 
-  */
- 
-const url = 'https://brand-logo-api.p.rapidapi.com/brand/retrieve';  // Random brand API endpoint
-const apiKey = 'brand__3ZWNr9UNGmmy3MGDgK4TSZ6Y'; // Replace with your actual API key
-
-const options = {
-    method: 'GET',
-    headers: {
-        'Authorization': `Bearer ${apiKey}`,
-        'Content-Type': 'application/json'
-    }
-};
-
-async function getRandomBrandColors() {
     try {
         const response = await fetch(url, options);
-
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-
         const result = await response.json();
         
-        // Assuming the API returns a random brand and it has a colors array
-        if (result.brand && Array.isArray(result.brand.colors)) {
-            // Extract hex values from the colors array
-            const hexColors = result.brand.colors.map(color => color.hex);
-            console.log('Hex Colors:', hexColors);
-        } else {
-            console.log('No colors data found.');
-        }
+        // Get calories
+        const calories = result.nutrition?.calories || 0;
+        console.log("Monthly Recipe Calories:", calories);
+        
+        // Invert the mapping: Assuming calories 0-1000 maps to brightness from 2 (bright) to 0.5 (dark)
+        let brightness = map(calories, 0, 1000, 1, 0.2);
+        console.log("Brightness:", brightness);
+
+        // Apply brightness filter to the plate image
+        const plateImage = document.querySelector('.plate');
+        plateImage.style.filter = `brightness(${brightness})`;
+        console.log("Plate image filter:", plateImage.style.filter);
+
     } catch (error) {
-        console.error('Error fetching brand data:', error);
+        console.error(error);
     }
 }
 
-getRandomBrandColors();
-
-/*const title = document.querySelector('.title');
-
-function rotateTitle() {
-  let angle = 0;
-  setInterval(() => {
-    angle += 1;
-    title.style.transform = `rotate(${angle}deg) translate(-50%, -100%)`;
-  }, 10); // Adjust speed here
-}
-
-rotateTitle();
-*/
+getMonthlyRecipeCalories();

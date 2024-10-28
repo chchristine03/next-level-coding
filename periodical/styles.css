@@ -1,5 +1,5 @@
 body{
-    background-color: rgb(96, 40, 61);
+    background-color: rgb(65, 96, 40);
 }
 .circle {
     position:absolute;
@@ -17,22 +17,22 @@ body{
 
 .column1 {
     margin-left: 150px; 
-    background-color: #60ac72; 
+    background-color: #b71762; 
 
 }
 .column2 {
     margin-left: 250px; 
-    background-color: #34dbd3; 
+    background-color: #e94242; 
 }
 
 .column3 {
     margin-left: 350px; 
-    background-color: #3458db; 
+    background-color: #db9b34; 
 }
 
 .column4 {
     margin-left: 450px; 
-    background-color: #422590; 
+    background-color: #299025; 
 }
 
 .row1{
@@ -74,6 +74,18 @@ body{
     position: absolute;
     top: 50%;
     left: 50%;
-    transform-origin: 0 100%; /* Adjust to control text alignment */
+    transform-origin: 0 100%;
     transform: translate(-50%, -100%); 
 }
+.plate{
+    position: absolute;
+    margin-left: 190px;
+    margin-top: -180px;
+    width: 1000px; 
+}
+
+img {
+    width: 1000px; 
+
+  }
+  
