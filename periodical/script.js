@@ -42,7 +42,7 @@ function getMonthlyRandomId(min, max) {
 }
 
 async function getMonthlyRecipeCalories() {
-    const randomId = getMonthlyRandomId(8000, 9000); // Adjust ID range based on Tasty's available range
+    const randomId = getMonthlyRandomId(8000, 9000); 
     const url = `https://tasty.p.rapidapi.com/recipes/get-more-info?id=${randomId}`;
     const options = {
         method: 'GET',
@@ -55,8 +55,7 @@ async function getMonthlyRecipeCalories() {
     try {
         const response = await fetch(url, options);
         const result = await response.json();
-        
-        // Get calories
+    
         const calories = result.nutrition?.calories;
         const dishName = result.name;
 
@@ -64,12 +63,10 @@ async function getMonthlyRecipeCalories() {
         console.log("Monthly Recipe Calories:", calories);
         
         
-        // Invert the mapping: Assuming calories 0-1000 maps to brightness from 2 (bright) to 0.5 (dark)
         let brightness = map(calories, 0, 1000, 1,0.1);
         console.log("Brightness:", brightness);
         console.log()
 
-        // Apply brightness filter to the plate image
         const plateImage = document.querySelector('.plate');
         plateImage.style.filter = `brightness(${brightness})`;
         console.log("Plate image filter:", plateImage.style.filter);
