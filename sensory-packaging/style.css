@@ -1,0 +1,95 @@
+body {
+  background-color: rgb(20, 30, 33);
+}
+
+
+#dataHere .silhouette-container .fragrance-name {
+  font-family: "meursault-variable", serif;
+  font-variation-settings: "wght" 500, "wdth" 84;
+  font-size: 60px; 
+  line-height: 1.4;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+  margin-top: 100px; 
+  position:absolute;
+  bottom:100px;
+  color:rgba(255, 255, 255, 0.646);
+  filter: drop-shadow(0px 0px 10px rgb(255, 236, 236));
+
+}
+
+#dataHere {
+  display: flex;
+  flex-direction: column;  
+  justify-content: center; 
+  align-items: center;    
+  gap: 200px;              
+
+  filter: drop-shadow(0px 0px 30px rgb(253, 232, 232));
+}
+
+canvas {
+  width: 100%;
+  height: auto;
+}
+
+.background-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.circle-background {
+  background: radial-gradient(circle, #cb6bc04d 30%, rgba(0, 0, 0, 0) 1%);
+  background-size: 50px 50px;
+  filter: blur(5px); 
+}
+
+.stripe-background {
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(104, 255, 144, 0.423) 0,
+    rgba(147, 255, 80, 0.262) 10px,
+    rgba(123, 226, 255, 0) 10px,
+    rgba(0, 0, 0, 0) 20px
+  );
+  filter: blur(3px); 
+}
+
+.silhouette-container {
+  width: 500px; 
+  height: 600px; 
+  margin: 20px 0; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative; }
+
+.silhouette-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(73, 68, 176, 0.6) 0%, rgba(0, 0, 0, 0) 60%);
+  z-index: -1; 
+  border-radius: 50%; 
+}
+
+
+.info-text {
+  font-family: "meursault-variable", serif;
+  font-variation-settings: "wght" 500, "wdth" 84;
+  font-size: 15px; 
+  line-height: 1.4;
+  color: #ffffff69; 
+  text-align: center;
+  font-style: italic; 
+  position:absolute;
+  bottom:30px;
+}
