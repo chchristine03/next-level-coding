@@ -1,4 +1,3 @@
-
 let sheetID = "1HGTFu9kxH9vRqMfCxhS35v34Z4qTVGOhw9VNlI-sgdc";
 let tabName = "Sheet1";
 
@@ -65,6 +64,7 @@ async function getData() {
       canvas.height = 500;
 
       let img = new Image();
+      img.src = illustrations[dataPoint.FragranceType];
       img.onload = () => {
         const imgAspectRatio = img.width / img.height;
         const canvasAspectRatio = canvas.width / canvas.height;
@@ -99,7 +99,6 @@ async function getData() {
         ctx.globalCompositeOperation = "source-in";
         ctx.fillStyle = gradient;
         ctx.fillRect(0, 0, canvas.width, canvas.height);
-
       };
     }
     
