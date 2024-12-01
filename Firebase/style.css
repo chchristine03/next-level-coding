@@ -1,8 +1,8 @@
 body {
-	background-color: #f5f5f5;
+	background-color: #8eecb5;
 	display: flex;
-	justify-content: center;
-	align-items: center;
+	/*justify-content: center;
+	align-items: center;*/
 	height: 100vh;
 	margin: 0;
 }
@@ -15,7 +15,7 @@ body {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	background-color: white;
+	background-color: rgb(83, 231, 125);
 	border-radius: 8px;
 	padding: 10px;
 	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -46,7 +46,7 @@ body {
 }
 
 #chatroom {
-	width: 90%;
+	width: 30%;
 	max-width: 600px;
 	margin: 70px auto 50px;
 	padding: 10px;
@@ -56,6 +56,8 @@ body {
 	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 	max-height: 400px;
 	overflow-y: auto;
+	position: absolute;
+	top:10%; left: 10%; 
 }
 
 #chatroom li {
@@ -66,7 +68,7 @@ body {
 }
 
 #chatroom li {
-	background-color: #e0f7fa;
+	background-color: #4ee66d;
 }
 
 #chatroom li span {
@@ -77,4 +79,23 @@ body {
 #chatroom li .message {
 	margin-top: 4px;
 	color: #333;
+}
+
+.lost{
+position: absolute;
+top:10%; left: 10%; 
+}
+
+
+.found{
+	position: absolute;
+	top:10%; right: 40%;
+	}
+
+.output2 {
+background-color: rgb(255, 116, 232);
+position: absolute;
+top: 10px; left:50%;
+width:50%;
+height:100%;
 }

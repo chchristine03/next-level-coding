@@ -3,20 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sketch
-    </title>
-    <link href="style.css" rel="stylesheet">
+    <title>interactive perspectives</title>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase.js"></script>
-    <script defer ssrc="sketch.js"></script>
+    <link href="style.css" rel="stylesheet">
+
 </head>
 <body>
+    <div class="lost"> Lost</div>
     <form id="input-form" action="">
         <input required id="name-input" type="text" placeholder="Your Name">
-        <input required id="message-input" type="text" placeholder="Type something...">
+        <input required id="message-input" type="text" placeholder="Type what you lost...">
         <button type="submit" id="send-button">Send</button>
     </form>
+    <div class="output2">
+    </div>
+    <div class="found"> Found</div>
     <ul id="chatroom">
         zzz... so quiet
     </ul>
+
+
+    <script defer src="main.js"></script>
 </body>
 </html>

@@ -1,16 +1,17 @@
 const firebaseConfig = {
-	apiKey: "AIzaSyC0pW8AfBZshwB2qXDjIbQwc6jnqxuue8w",
-	authDomain: "next-level-coding-59219.firebaseapp.com",
-	databaseURL: "https://next-level-coding-59219-default-rtdb.firebaseio.com",
-	projectId: "next-level-coding-59219",
-	storageBucket: "next-level-coding-59219.firebasestorage.app",
-	messagingSenderId: "534293376059",
-	appId: "1:534293376059:web:9924432463cdf8b0d9c01e",
-	measurementId: "G-SQJYCQDE1P"
+	apiKey: "AIzaSyD57_cKRjB6fjIl96iCDEmm4LQSsllGNGE",
+	authDomain: "exhibiting-perspectives-a61b3.firebaseapp.com",
+	projectId: "exhibiting-perspectives-a61b3",
+	storageBucket: "exhibiting-perspectives-a61b3.firebasestorage.app",
+	messagingSenderId: "349673039738",
+	appId: "1:349673039738:web:d39f0571a3d85528f118c3",
+	measurementId: "G-8FEYGHZNMD"
   };
+  
 
 firebase.initializeApp(firebaseConfig);
 const database = firebase.database();
+
 const ref = database.ref("chatroom");
 /* ^^^ initialization */
 
