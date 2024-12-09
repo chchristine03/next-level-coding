@@ -5,22 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>interactive perspectives</title>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase.js"></script>
+    <link rel="stylesheet" href="https://use.typekit.net/vkk0fbf.css">
     <link href="style.css" rel="stylesheet">
 
 </head>
 <body>
-    <div class="lost"> Lost</div>
+    <div id="light"></div>
+    <div class="blurry-text title text ">
+        Lost & 
+        <br>
+        Found
+    </div>
+    <div class="description text">
+        Welcome to Lost & Found!
+        <br> 
+<br> 1. Select a Category: 
+<br> Choose the type of thing you "lost" from the dropdown menu
+<br> — it could be a Person, a Thought, or an Object.
+<br>
+<br> 2. Describe Your Loss, for example:
+<br>What is the name of the thing you lost?
+<br>Why did you lose it?
+<br>When did it happen?
+<br>How do you feel about it?
+<br>Add anything sentimental or random that comes to mind.
+<br>
+<br>3. Share Your Story: Hit the "Send" button to submit.
+<br> 
+<br> Good luck finding what you want as they shuffle over time.
+    </div>
+    
+     <div class="text">
+    <button id="toggle-shuffle">Start Shuffle</button>
+    </div>
+    <img src="imgs/lost2.jpg">
     <form id="input-form" action="">
-        <input required id="name-input" type="text" placeholder="Your Name">
-        <input required id="message-input" type="text" placeholder="Type what you lost...">
+        <select required id="name-input">
+            <option value="" disabled selected>Select Category</option>
+            <option value="Person">Person</option>
+            <option value="Thought">Thought</option>
+            <option value="Object">Object</option>
+        </select>
+        <input required id="message-input" type="text" placeholder="Describe what you lost...">
         <button type="submit" id="send-button">Send</button>
     </form>
-    <div class="output2">
-    </div>
-    <div class="found"> Found</div>
-    <ul id="chatroom">
+
+
+    <div class="text container">
+        <ul id="chatroom">
         zzz... so quiet
-    </ul>
+        </ul>
+    </div>
+
 
 
     <script defer src="main.js"></script>
